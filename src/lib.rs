@@ -33,7 +33,7 @@ pub const KECCAK_EMPTY_LIST_RLP: H256 = H256( [0x1d, 0xcc, 0x4d, 0xe8, 0xde, 0xc
 
 pub fn keccak<T: AsRef<[u8]>>(s: T) -> H256 {
 	let mut result = [0u8; 32];
-	Keccak::keccak256(s.as_ref(), &mut result);
+	write_keccak(s, &mut result);
 	H256(result)
 }
 
